@@ -81,7 +81,7 @@
       </div>
       <div class="nav-bar__social-links_line">
         <a href="/behance">
-          <svg class="social-link" viewBox="0 0 387 246">
+          <svg class="social-link social-link__behance" viewBox="0 0 387 246">
             <g>
               <path class="social-link__icon" d="M124 195l-72 0 0 -61 68 0c20,0 27,17 27,29 0,
               11 -1,32 -23,32zm127 -155l97 0 0 -24 -97 0 0 24zm49 58c38,0 37,36 37,
@@ -106,19 +106,63 @@
         </a>
       </div>
     </div>
+    <div
+      @click="$emit('update:showMenu', !showMenu)"
+      class="burger"/>
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'Gallery',
+  props: ['showMenu'],
 };
 </script>
 
 <style lang="scss" scoped>
+.burger{
+  width: 35px;
+  height: 3px;
+  background-color: #454545;
+  position: relative;
+  cursor: pointer;
+  transition: 0.5s;
+  display: none;
+  @media  only screen and (max-width: 768px) {
+    display: block;
+  }
+  &::after{
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 35px;
+    height: 3px;
+    background-color: #454545;
+  }
+  &::before{
+    content: '';
+    position: absolute;
+    top: 10px;
+    width: 35px;
+    height: 3px;
+    background-color: #454545;
+  }
+  &:hover{
+    background-color: #fff;
+    &::before,
+    &::after{
+      background-color: #fff;
+    }
+  }
+}
 svg.social-link {
   height: 30px;
   width: 30px;
+  &__behance{
+    height: 35px;
+    width: 35px;
+  }
 }
 .social-link__icon {
   fill: #454545;
@@ -138,13 +182,21 @@ svg.social-link {
   flex-direction: column;
   align-items: center;
   @media  only screen and (max-width: 768px) {
-    display: none;
+    width: 100%;
+    height: 150px;
+    padding: 0;
+    flex-direction: row;
+    justify-content: space-around;
   }
   &__nav{
     padding-top: 50px;
+    @media  only screen and (max-width: 768px) {
+      display: none;
+    }
     ul{
       padding: 0;
       list-style: none;
+      z-index: 11;
     }
     li{
       margin-bottom: 40px;
@@ -166,10 +218,18 @@ svg.social-link {
   }
   &__social-links{
     width: 100%;
+    @media  only screen and (max-width: 768px) {
+      width: 60%;
+      display: flex;
+    }
     &_line{
       width: 100%;
       display: flex;
       justify-content: center;
+      @media  only screen and (max-width: 768px) {
+        width: 50%;
+        justify-content: space-around;
+      }
       a{
         margin: 10px;
       }

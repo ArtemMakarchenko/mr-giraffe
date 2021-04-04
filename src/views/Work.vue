@@ -1,21 +1,21 @@
 <template>
-  <div class="about">
+  <div class="work">
     <router-link
       class="router-link"
       to="/"
     >Home</router-link>
-    <h1>About Page</h1>
+    <h1>Work Page</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'About',
+  name: 'Work',
 };
 </script>
 
 <style lang="scss" scoped>
-.about{
+.work{
   padding: 30px;
   max-width: 1200px;
   margin: 0 auto;

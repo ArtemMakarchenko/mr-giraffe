@@ -1,21 +1,21 @@
 <template>
-  <div class="about">
+  <div class="reviews">
     <router-link
       class="router-link"
       to="/"
     >Home</router-link>
-    <h1>About Page</h1>
+    <h1>Reviews Page</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'About',
+  name: 'Reviews',
 };
 </script>
 
 <style lang="scss" scoped>
-.about{
+.reviews{
   padding: 30px;
   max-width: 1200px;
   margin: 0 auto;
